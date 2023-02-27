@@ -4,8 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="dist/output.css" rel="stylesheet" />
     <title>Document</title>
+    <link href="dist/output.css" rel="stylesheet" />
+    <!--tetap pada mode ygdipilh walaupun di refresh -->
+    <script>
+    if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    </script>
   </head>
   <body>
     <!-- header start-->
@@ -22,31 +30,44 @@
               <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
             </button>
             <!-- nav -->
-            <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:rounded-none lg:shadow-none lg:max-w-full ">
+            <nav id="nav-menu" class="hidden absolute py-5 bg-white dark:bg-slate-700  shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:rounded-none lg:shadow-none lg:max-w-full lg:dark:bg-transparent ">
               <ul class="block lg:flex">
                 <li class="group">
-                  <a href="#home" class="text-base text-hitam font-display font-medium py-2 mx-8 flex group-hover:text-ungu
+                  <a href="#home" class="text-base text-hitam font-display font-medium py-2 mx-8 flex group-hover:text-ungu dark:text-white
                   ">Beranda</a>
                 </li>
                 <li class="group">
-                  <a href="#about" class="text-base text-hitam font-display font-medium py-2 mx-8 flex group-hover:text-ungu
+                  <a href="#about" class="text-base text-hitam font-display font-medium py-2 mx-8 flex group-hover:text-ungu dark:text-white
                   ">Tentang Saya</a>
                 </li>
                 <li class="group">
-                  <a href="#portfolio" class="text-base text-hitam font-display font-medium py-2 mx-8 flex group-hover:text-ungu
+                  <a href="#portfolio" class="text-base text-hitam font-display font-medium py-2 mx-8 flex group-hover:text-ungu dark:text-white
                   ">Portfolio</a>
                 </li>
                 <li class="group">
-                  <a href="#clients" class="text-base text-hitam font-display font-medium py-2 mx-8 flex group-hover:text-ungu
+                  <a href="#clients" class="text-base text-hitam font-display font-medium py-2 mx-8 flex group-hover:text-ungu dark:text-white
                   ">Clients</a>
                 </li>
                 <li class="group">
-                  <a href="#blog" class="text-base text-hitam font-display font-medium py-2 mx-8 flex group-hover:text-ungu
+                  <a href="#blog" class="text-base text-hitam font-display font-medium py-2 mx-8 flex group-hover:text-ungu dark:text-white
                   ">Blog</a>
                 </li>
                 <li class="group">
-                  <a href="#contact" class="text-base text-hitam font-display font-medium py-2 mx-8 flex group-hover:text-ungu
+                  <a href="#contact" class="text-base text-hitam font-display font-medium py-2 mx-8 flex group-hover:text-ungu dark:text-white
                   ">Contact</a>
+                </li>
+                <li class="flex items-center">
+                  <div class="flex py-2 mx-8">
+                    <span class="mr-2 text-sm text-slate-500 dark:text-white">Light</span>
+                    <input type="checkbox" class="hidden" id="dark-toggle">
+                    <label for="dark-toggle">
+                      <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+                        <div class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out">
+                        </div>
+                      </div>
+                    </label>
+                    <span class="ml-2 text-sm text-slate-500 dark:text-white">Dark</span>
+                  </div>
                 </li>
               </ul>
             </nav>
@@ -56,29 +77,32 @@
     </header>
     <!-- header end -->
     <!-- hero section start -->
-    <section id="home" class="pt-36">
+    <section id="home" class="pt-36 dark:bg-slate-700">
       <div class="container">
         <div class="flex flex-wrap ">
           <!-- tulisan kiri -->
           <div class="w-full self-center px-4 lg:w-1/2">
-            <h3 class="text-hitam font-body font-medium text-lg leading-[22px]">I'm Shayna</h3>
-            <h1 class="mt-[16px] text-hitam font-display font-extrabold text-[52px] leading-[67px] lg:text-[55px] ">Full-Stack<br><span class="text-ungu">UI/UX</span> Developer</h1>
-            <p class="text-soft text-lg font-body font-normal leading-[32px] mt-[16px] ">Membantu perusahaan dalam mengembangkan<br>website atau mobile app untuk tumbuh lebih besar</p>
+            <h3 class="text-hitam font-body font-medium text-lg leading-[22px] dark:text-white">I'm Shayna</h3>
+            <h1 class="mt-[16px] text-hitam font-display font-extrabold text-[52px] leading-[67px] lg:text-[55px] dark:text-white">Full-Stack<br><span class="text-ungu">UI/UX</span> Developer</h1>
+            <p class="text-soft text-lg font-body font-normal leading-[32px] mt-[16px] dark:text-white ">Membantu perusahaan dalam mengembangkan<br>website atau mobile app untuk tumbuh lebih besar</p>
             <div class="flex items-center mt-[40px]">
               <a href="" class="text-hitam font-display font-semibold text-lg bg-kuning py-4 px-7 rounded-[20px] 
               hover:opacity-80 hover:shadow-lg transition duration-300">Explore now</a>
               <div class="flex items-center">
-                <a href="" class="ml-[20px] text-hitam font-display font-medium text-lg ">My Portfolio</a>
-                <span>
-                  <svg class="ml-2 
-                  width="15" 
-                  height="15" 
-                  viewBox="0 0 15 15" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.981 10.5444L13.981 1.96015L5.3967 1.96015M1.96017 13.981L13.8608 2.08036" stroke="#171513" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <a href="" class="ml-[20px] text-hitam dark:text-white font-display font-medium text-lg ">My Portfolio</a>
+                  <span>
+                    <svg
+                    class="" 
+                    width="34" 
+                    height="34" 
+                    viewBox="0 0 34 34" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.981 19.5444L22.981 10.9602L14.3967 10.9602M10.9602 22.981L22.8608 11.0804" 
+                      stroke="#171513"  stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                </span>
+                  </span>
+                
               </div>
             </div>
             </div>
@@ -95,11 +119,11 @@
     <!-- hero section end -->
 
     <!-- skill start -->
-    <section id="skill">
-       <div class="flex bg-hitam py:-[40px] lg:py-[49px]">
-        <div class="w-full flex items-center lg:justify-around overflow-hidden">
+    <section id="skill" class="">
+      <div class=" relative flex overflow-x-hidden items-center bg-hitam">
+        <div class="flex items-center justify-around py-[45px] animate-marquee whitespace-nowrap lg:w-full">
           <div class="ml-5">
-            <h2 Class="text-white font-display font-medium text-lg">PROTOTYPE</h2>
+            <span class="text-white font-display font-medium text-lg">PROTOTYPE</span>
           </div>
           <div class="ml-5">
             <span>
@@ -114,7 +138,7 @@
             </span>
           </div>
           <div class="ml-5">
-            <h2 Class=" text-white font-display font-medium text-lg">MARKETING</h2>
+            <span class="text-white font-display font-medium text-lg">MARKETING</span>
           </div>
           <div class="ml-5">
             <span>
@@ -129,7 +153,7 @@
             </span>
           </div>
           <div class="ml-5">
-            <h2 Class=" text-white font-display font-medium text-lg">DEVELOPMENT</h2>
+            <span class="text-white font-display font-medium text-lg">DEVELOPMENT</span>
           </div>
           <div class="ml-5">
             <span>
@@ -144,7 +168,7 @@
             </span>
           </div>
           <div class="ml-5">
-            <h2 Class=" text-white font-display font-medium text-lg">RESEARCH</h2>
+            <span class="text-white font-display font-medium text-lg">RESEARCH</span>
           </div>
           <div class="ml-5">
             <span>
@@ -159,7 +183,7 @@
             </span>
           </div>
           <div class="ml-5">
-            <h2 Class=" text-white font-display font-medium text-lg">QUALITY ASSURANCE</h2>
+            <span class="text-white font-display font-medium text-lg">QUALITY ASSURANCE</span>
           </div>
           <div class="ml-5">
             <span>
@@ -174,7 +198,87 @@
             </span>
           </div>
         </div>
+      
+        <div class="flex items-center justify-around absolute top-0 py-[45px] animate-marquee2 whitespace-nowrap lg:w-full">
+          <div class="ml-5">
+            <span class="text-white font-display font-medium text-lg">PROTOTYPE</span>
+          </div>
+          <div class="ml-5">
+            <span>
+              <svg 
+              width="26"
+               height="24" 
+               viewBox="0 0 26 24" 
+               fill="none" 
+               xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.0489 0.927052C12.3483 0.00574112 13.6517 0.00573993 13.9511 0.927051L16.1432 7.67376C16.2771 8.08578 16.661 8.36475 17.0943 8.36475H24.1882C25.1569 8.36475 25.5597 9.60436 24.7759 10.1738L19.0369 14.3435C18.6864 14.5981 18.5397 15.0495 18.6736 15.4615L20.8657 22.2082C21.1651 23.1295 20.1106 23.8956 19.3269 23.3262L13.5878 19.1565C13.2373 18.9019 12.7627 18.9019 12.4122 19.1565L6.67312 23.3262C5.88941 23.8956 4.83493 23.1295 5.13428 22.2082L7.32642 15.4615C7.46029 15.0495 7.31363 14.5981 6.96315 14.3435L1.22405 10.1738C0.440337 9.60436 0.843112 8.36475 1.81184 8.36475H8.90575C9.33897 8.36475 9.72293 8.08578 9.8568 7.67376L12.0489 0.927052Z" fill="#FCDA68"/>
+                </svg>
+            </span>
+          </div>
+          <div class="ml-5">
+            <span class="text-white font-display font-medium text-lg">MARKETING</span>
+          </div>
+          <div class="ml-5">
+            <span>
+              <svg 
+              width="26"
+               height="24" 
+               viewBox="0 0 26 24" 
+               fill="none" 
+               xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.0489 0.927052C12.3483 0.00574112 13.6517 0.00573993 13.9511 0.927051L16.1432 7.67376C16.2771 8.08578 16.661 8.36475 17.0943 8.36475H24.1882C25.1569 8.36475 25.5597 9.60436 24.7759 10.1738L19.0369 14.3435C18.6864 14.5981 18.5397 15.0495 18.6736 15.4615L20.8657 22.2082C21.1651 23.1295 20.1106 23.8956 19.3269 23.3262L13.5878 19.1565C13.2373 18.9019 12.7627 18.9019 12.4122 19.1565L6.67312 23.3262C5.88941 23.8956 4.83493 23.1295 5.13428 22.2082L7.32642 15.4615C7.46029 15.0495 7.31363 14.5981 6.96315 14.3435L1.22405 10.1738C0.440337 9.60436 0.843112 8.36475 1.81184 8.36475H8.90575C9.33897 8.36475 9.72293 8.08578 9.8568 7.67376L12.0489 0.927052Z" fill="#FCDA68"/>
+                </svg>
+            </span>
+          </div>
+          <div class="ml-5">
+            <span class="text-white font-display font-medium text-lg">DEVELOPMENT</span>
+          </div>
+          <div class="ml-5">
+            <span>
+              <svg 
+              width="26"
+               height="24" 
+               viewBox="0 0 26 24" 
+               fill="none" 
+               xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.0489 0.927052C12.3483 0.00574112 13.6517 0.00573993 13.9511 0.927051L16.1432 7.67376C16.2771 8.08578 16.661 8.36475 17.0943 8.36475H24.1882C25.1569 8.36475 25.5597 9.60436 24.7759 10.1738L19.0369 14.3435C18.6864 14.5981 18.5397 15.0495 18.6736 15.4615L20.8657 22.2082C21.1651 23.1295 20.1106 23.8956 19.3269 23.3262L13.5878 19.1565C13.2373 18.9019 12.7627 18.9019 12.4122 19.1565L6.67312 23.3262C5.88941 23.8956 4.83493 23.1295 5.13428 22.2082L7.32642 15.4615C7.46029 15.0495 7.31363 14.5981 6.96315 14.3435L1.22405 10.1738C0.440337 9.60436 0.843112 8.36475 1.81184 8.36475H8.90575C9.33897 8.36475 9.72293 8.08578 9.8568 7.67376L12.0489 0.927052Z" fill="#FCDA68"/>
+                </svg>
+            </span>
+          </div>
+          <div class="ml-5">
+            <span class="text-white font-display font-medium text-lg">RESEARCH</span>
+          </div>
+          <div class="ml-5">
+            <span>
+              <svg 
+              width="26"
+               height="24" 
+               viewBox="0 0 26 24" 
+               fill="none" 
+               xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.0489 0.927052C12.3483 0.00574112 13.6517 0.00573993 13.9511 0.927051L16.1432 7.67376C16.2771 8.08578 16.661 8.36475 17.0943 8.36475H24.1882C25.1569 8.36475 25.5597 9.60436 24.7759 10.1738L19.0369 14.3435C18.6864 14.5981 18.5397 15.0495 18.6736 15.4615L20.8657 22.2082C21.1651 23.1295 20.1106 23.8956 19.3269 23.3262L13.5878 19.1565C13.2373 18.9019 12.7627 18.9019 12.4122 19.1565L6.67312 23.3262C5.88941 23.8956 4.83493 23.1295 5.13428 22.2082L7.32642 15.4615C7.46029 15.0495 7.31363 14.5981 6.96315 14.3435L1.22405 10.1738C0.440337 9.60436 0.843112 8.36475 1.81184 8.36475H8.90575C9.33897 8.36475 9.72293 8.08578 9.8568 7.67376L12.0489 0.927052Z" fill="#FCDA68"/>
+                </svg>
+            </span>
+          </div>
+          <div class="ml-5">
+            <span class="text-white font-display font-medium text-lg">QUALITY ASSURANCE</span>
+          </div>
+          <div class="ml-5">
+            <span>
+              <svg 
+              width="26"
+               height="24" 
+               viewBox="0 0 26 24" 
+               fill="none" 
+               xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.0489 0.927052C12.3483 0.00574112 13.6517 0.00573993 13.9511 0.927051L16.1432 7.67376C16.2771 8.08578 16.661 8.36475 17.0943 8.36475H24.1882C25.1569 8.36475 25.5597 9.60436 24.7759 10.1738L19.0369 14.3435C18.6864 14.5981 18.5397 15.0495 18.6736 15.4615L20.8657 22.2082C21.1651 23.1295 20.1106 23.8956 19.3269 23.3262L13.5878 19.1565C13.2373 18.9019 12.7627 18.9019 12.4122 19.1565L6.67312 23.3262C5.88941 23.8956 4.83493 23.1295 5.13428 22.2082L7.32642 15.4615C7.46029 15.0495 7.31363 14.5981 6.96315 14.3435L1.22405 10.1738C0.440337 9.60436 0.843112 8.36475 1.81184 8.36475H8.90575C9.33897 8.36475 9.72293 8.08578 9.8568 7.67376L12.0489 0.927052Z" fill="#FCDA68"/>
+                </svg>
+            </span>
+          </div>
+          
+        </div>
       </div>
+       
     </section>
     <!-- skill end -->
 
@@ -626,8 +730,8 @@
     </div>
   </div>
 
-</footer>
-<!-- Footer End -->
+    </footer>
+    <!-- Footer End -->
 
 <!-- Back to top Start -->
 <a href="#home" class="fixed bottom-4 right-4 z-[9999] hidden h-14 w-14 items-center justify-center rounded-full bg-ungu p-4 hover:animate-pulse" id="to-top">
